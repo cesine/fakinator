@@ -1,0 +1,1101 @@
+{
+    "header": {
+        "productionStage": "IPC",
+        "location": "",
+        "sku": {
+            "_id": "",
+            "name": "",
+            "_dev_notes": "TODO there can be more attributes here, depending on if the server team wants them."
+        },
+        "purchaseOrder": {
+            "_id": "",
+            "date": "",
+            "_dev_notes": "TODO there can be more attributes here, depending on if the server team wants them."
+        },
+        "workOrder": {
+            "_id": ""
+        },
+        "assignment": {
+            "_id": "",
+            "date_created": ""
+        },
+        "supplier": {
+            "_id": "7562345689",
+            "name": "Allied Biscuit"
+        },
+        "buyer": {
+            "_id": "6492057564",
+            "name": "Foobars"
+        },
+        "inspectors": [
+            {
+              "username": "daniel"
+            }
+        ],
+        "date": "",
+        "forecasted_inspection_date": "",
+        "thirdParty": {},
+        "hardwareInfo": {},
+        "softwareInfo": {},
+        "acceptableQualityLevelMetadata": {
+            "lotSize": 0,
+            "sampleSize": 0,
+            "inspectionType": "",
+            "inspectionLevel": "",
+            "samplingByAttributePlan": ""
+        }
+    },
+    "inspectionSections": [
+      {
+            "label": "master_carton",
+            "title": "MASTER CARTON",
+            "checkpoints": [
+                {
+                    "id": "tracking_labels__mb_identification_and_date_coding_",
+                    "criteria": "MB identification :<br>1. On external master cartons and foldings, Mega Brands must be identified with the MEGA logo or the brand logo, as well as the Company name and address <br>2. On at least one part of the toy, MB must be identified with the MB logo, or a brand logo, or with ‘MEGA Brands’ or with ‘MEGA Brands Inc<br><br>’Date coding :<br>1. Date codes on parts (one visible part per toy) must be legible and permanently ink-jet printed or cold-stamped or hot-stamped<br>2. The part marked with date code must be one of the parts listed in the <button class='btn btn-primary' onclick='OPrime.bug'>BOM</button><br>3. Date codes on foldings must be permanently ink-jet printed or cold-stamped<br>4. Date codes on master cartons must be printed on the UPC label or permanently stamped near the UPC label<br>5. IMPORTANT : On solid packs, date codes on master carton, foldings and parts must be the same and correspond to the packout date and workshift. On assortments, date code on master carton may be different from the individual toys<br><br>IMPORTANT : Deviations to the above must be authorized by Quality Director",
+                    "label": "Tracking labels (MB identification and date coding)",
+                    "androidActions": [{"method": "takePhoto", "label": "Take Photo"}, {"method": "scanBarcode", "label": "Scan Barcode"}],
+                    "dataCell": {
+                        "label": "Critical",
+                        "defectType": "critical",
+                        "value": 0,
+                        "comments": "",
+                        "images": [{"src": "happyface.png"},{"src": "happyface.png"}],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "wrong_identification",
+                    "criteria": "1- Rejected if there are more than one label or bar code on the box 2- Rejected if there are mistakes on the label or bar code on the box 3- Rejected if there are any missing information on the label on the box",
+                    "label": "Wrong identification",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "no_identification",
+                    "criteria": "Rejected if there is no identification label / Barcode",
+                    "label": "No identification",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "peeling_label",
+                    "criteria": "1- Rejected if peeling is more than 1/8 in (3.2 mm).",
+                    "label": "Peeling Label",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "badly_crooked_label",
+                    "criteria": "1- Rejected on labels outside frame.<br>2- Rejected on labels 3 in and smaller if crooked by more than 1/16 in (1.6 mm).<br>3- Rejected on labels more than 3 in if crooked by more than 1/8 in (3.2 mm).",
+                    "label": "Badly crooked label",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "air_bubble_under_label",
+                    "criteria": "1- Front label: for labels equal or smaller than 3 in (76.2 mm) x 6 in (152.4 mm), no bubbles allowed. On larger labels, rejected if 1 bubble is greater than 1/4 in (6.4 mm) or more than 3 bubbles of 1/8 in (3.2 mm).<br>2- Secondary labels (back, bottom, etc) : rejected if 1 bubble is greater than 1/2 in (12.7 mm) or more than 3 bubbles of 1/8 in (3.2 mm).",
+                    "label": "Air bubble under label",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "logo_readability",
+                    "criteria": "Rejected if logo is deformed or incomplete.",
+                    "label": "Logo readability",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "carton_drop",
+                    "criteria": "Carton drop test with 2 master carton. If drop test fails, open the box and check the content. ",
+                    "label": "Carton Drop",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "<br>",
+                        "defectType": "_br_",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "crushed_or_damaged_carton",
+                    "criteria": "1- Lot rejected if any crushed or damaged cartons are found and are not repacked by vendor",
+                    "label": "Crushed or Damaged Carton ",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "wrong_dimensions_or_gross_weight",
+                    "criteria": "1- Rejected if wrong packaging is found and are not repacked by vendor ",
+                    "label": "Wrong Dimensions or Gross Weight ",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "others",
+                    "criteria": "Other problem not listed",
+                    "label": "Others",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                }
+            ],
+            "unstructuredCheckpoints": {},
+            "procedure": [
+                {
+                    "label": "",
+                    "description": "",
+                    "associatedCheckpoints": []
+                }
+            ],
+            "defectCountMatrix": {}
+        },
+        {
+            "label": "folding",
+            "title": "FOLDING",
+            "checkpoints": [
+                {
+                    "id": "tracking_labels__mb_identification_and_date_coding_",
+                    "criteria": "MB identification :<br>1. On external master cartons and foldings, Mega Brands must be identified with the MEGA logo or the brand logo, as well as the Company name and address <br>2. On at least one part of the toy, MB must be identified with the MB logo, or a brand logo, or with ‘MEGA Brands’ or with ‘MEGA Brands Inc<br><br>’Date coding :<br>1. Date codes on parts (one visible part per toy) must be legible and permanently ink-jet printed or cold-stamped or hot-stamped<br>2. The part marked with date code must be one of the parts listed in the BOM<br>3. Date codes on foldings must be permanently ink-jet printed or cold-stamped<br>4. Date codes on master cartons must be printed on the UPC label or permanently stamped near the UPC label<br>5. IMPORTANT : On solid packs, date codes on master carton, foldings and parts must be the same and correspond to the packout date and workshift. On assortments, date code on master carton may be different from the individual toys<br><br>IMPORTANT : Deviations to the above must be authorized by Quality Director",
+                    "label": "Tracking labels (MB identification and date coding)",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Critical",
+                        "defectType": "critical",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "wrong_identification",
+                    "criteria": "1- Rejected if there are more than one label or barcode on the box 2- Rejected if there are mistakes on the label or barcode on the box 3- Rejected if there are any missing information on the label on the box ",
+                    "label": "Wrong identification",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "no_identification",
+                    "criteria": "Rejected if there is no identification label / Barcode",
+                    "label": "No identification",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "damaged_folding",
+                    "criteria": "1- Rejected if folding is damaged for more than 1/4 in (6.4 mm). 2- Rejected when it affects the appearance of the Toy. ( Front or Top)",
+                    "label": "Damaged folding",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "air_bubble_under_label",
+                    "criteria": "1- Front label: for labels equal or smaller than 3 in (76.2 mm) x 6 in (152.4 mm), no bubbles allowed. On larger labels, rejected if 1 bubble is greater than 1/4 in (6.4 mm) or more than 3 bubbles of 1/8 in (3.2 mm).<br>2- Secondary labels (back, bottom, etc) : rejected if 1 bubble is greater than 1/2 in (12.7 mm) or more than 3 bubbles of 1/8 in (3.2 mm).",
+                    "label": "Air bubble under label",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "logo_readability",
+                    "criteria": "Rejected if logo is deformed or incomplete.",
+                    "label": "Logo readability",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "wrong_assembly_of_a_packaging_component",
+                    "criteria": "Rejected if affects the visibility of the toy",
+                    "label": "Wrong assembly of a packaging component",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "folding_graphic",
+                    "criteria": "Rejected if deviation from reference sample",
+                    "label": "Folding Graphic",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "playbook_graphic",
+                    "criteria": "Rejected if deviation from reference sample",
+                    "label": "Playbook Graphic",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "others",
+                    "criteria": "Other problem not listed",
+                    "label": "Others",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                }
+             ],
+            "unstructuredCheckpoints": {},
+            "procedure": [
+                {
+                    "label": "",
+                    "description": "",
+                    "associatedCheckpoints": []
+                }
+            ],
+            "defectCountMatrix": {}
+        },
+        {
+            "label": "bags",
+            "title": "BAGS",
+            "checkpoints": [
+                {
+                    "id": "no_warning_on_bag___toy",
+                    "criteria": "MB identification :<br>1. On external master cartons and foldings, Mega Brands must be identified with the MEGA logo or the brand logo, as well as the Company name and address <br>2. On at least one part of the toy, MB must be identified with the MB logo, or a brand logo, or with ‘MEGA Brands’ or with ‘MEGA Brands Inc<br><br>’Date coding :<br>1. Date codes on parts (one visible part per toy) must be legible and permanently ink-jet printed or cold-stamped or hot-stamped<br>2. The part marked with date code must be one of the parts listed in the BOM<br>3. Date codes on foldings must be permanently ink-jet printed or cold-stamped<br>4. Date codes on master cartons must be printed on the UPC label or permanently stamped near the UPC label<br>5. IMPORTANT : On solid packs, date codes on master carton, foldings and parts must be the same and correspond to the packout date and workshift. On assortments, date code on master carton may be different from the individual toys<br><br>IMPORTANT : Deviations to the above must be authorized by Quality Director",
+                    "label": "No warning on bag / toy",
+                    "androidActions": [{"method": "takePhoto", "label": "Take Photo"}],
+                    "dataCell": {
+                        "label": "Critical",
+                        "defectType": "critical",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "film_thickness",
+                    "criteria": "Film must be a minimum of 0.038mm",
+                    "label": "Film thickness",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Critical",
+                        "defectType": "critical",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "bag_opening",
+                    "criteria": "1- Rejected If the opening of the bag is larger than the smallest piece in the bag. The opening should not enlarge when the bag is shaken in a way to make the opening larger.",
+                    "label": "Bag Opening",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "poor_mesh_bag_trimming",
+                    "criteria": "1- On products with mesh bags, mesh must be trimmed to 2.5 in (63.5 mm) 3 in (76.2 mm) long after the knot<br>2 Rejected if trimmed longer than 3 in (76.2 mm)",
+                    "label": "Poor mesh bag trimming",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "others",
+                    "criteria": "Other problem not listed",
+                    "label": "Others",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                }
+            ],
+            "unstructuredCheckpoints": {},
+            "procedure": [
+                {
+                    "label": "",
+                    "description": "",
+                    "associatedCheckpoints": []
+                }
+            ],
+            "defectCountMatrix": {}
+        },
+        {
+            "label": "parts",
+            "title": "PARTS",
+            "checkpoints": [
+                {
+                    "id": "sharp_edge",
+                    "criteria": "1- Compare the edge with the template. If the edge feels as sharp to the touch, the piece is rejected.<br>2- Validate with sharp point tester at the lab. If the lab sharp point tester lights, the piece is rejected.",
+                    "label": "Sharp edge",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Critical",
+                        "defectType": "critical",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "sharp_point",
+                    "criteria": "1- Validate with sharp point tester at the lab. If the sharp point tester lights, the piece is rejected.<br>2- Compare point with template, If the point feels as sharp to the touch, the piece is rejected.",
+                    "label": "Sharp point",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Critical",
+                        "defectType": "critical",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "small_parts",
+                    "criteria": "Use EPS (Engineering Product Specifications) or test report to know if this criteria applies (Xbags). 1- This defect applies to components/toys intended for children under 3 years old.<br>2- Rejected If piece fits in the small parts gage<br>3- Rejected If flash is accessible and can be easily removed.",
+                    "label": "Small parts",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Critical",
+                        "defectType": "critical",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "tracking_labels__mb_identification_and_date_coding_",
+                    "criteria": "MB identification :<br>1. On external master cartons and foldings, Mega Brands must be identified with the MEGA logo or the brand logo, as well as the Company name and address <br>2. On at least one part of the toy, MB must be identified with the MB logo, or a brand logo, or with ‘MEGA Brands’ or with ‘MEGA Brands Inc<br><br>’Date coding :<br>1. Date codes on parts (one visible part per toy) must be legible and permanently ink-jet printed or cold-stamped or hot-stamped<br>2. The part marked with date code must be one of the parts listed in the BOM<br>3. Date codes on foldings must be permanently ink-jet printed or cold-stamped<br>4. Date codes on master cartons must be printed on the UPC label or permanently stamped near the UPC label<br>5. IMPORTANT : On solid packs, date codes on master carton, foldings and parts must be the same and correspond to the packout date and workshift. On assortments, date code on master carton may be different from the individual toys<br><br>IMPORTANT : Deviations to the above must be authorized by Quality Director",
+                    "label": "Tracking labels (MB identification and date coding)",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Critical",
+                        "defectType": "critical",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "short_shot",
+                    "criteria": "1- Rejected when we are able to see it with the naked eye.",
+                    "label": "Short Shot ",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "deformation",
+                    "criteria": "1- Rejected when it affects the functionality or the appearance.<br>2- Rejected on Micro pieces. See flatness B08<br>3- Rejected on other pieces, measure straightness against another piece if gap is more than 1/16 in (1,6 mm) by 6 in (152,4 mm) (use ruler).",
+                    "label": "Deformation",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "damaged_part",
+                    "criteria": "1- Rejected when sensitive to fingernail. See also A02",
+                    "label": "Damaged part",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "missing_piece",
+                    "criteria": "1- Rejected if piece is missing based on playbook or without an approved deviation based on BOM.",
+                    "label": "Missing piece",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "wrong_piece_used",
+                    "criteria": "1 - Rejected if wrong parts are used when comparing part number to BOM and playbook without approved deviation. ",
+                    "label": "Wrong piece used",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "not_assembled_properly__toy_",
+                    "criteria": "1- Rejected if visually observed or manually.",
+                    "label": "Not Assembled properly (Toy)",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "fit_problem",
+                    "criteria": "1- Rejected if the assembly in a column (5 to 10 pieces) is not straight.<br>2- Rejected if the parallel assembly on a B/O plate (plate type piece) is difficult.<br>3- Rejected if the assembly with special blocks is difficult, functionality test.<br>4- Validate fit with physical trials. Jig go no go",
+                    "label": "Fit Problem",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "broke_off_part",
+                    "criteria": "Applicable for pieces attached to frame. 1- Rejected when it not 100 % attached.",
+                    "label": "Broke off part",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "injection_point",
+                    "criteria": "1- Rejected if it creates interference when assembled.<br>2- Rejected on micro if it is longer than 1/32 in (0,8 mm).<br>3- Rejected on mini and maxi bloks if it is longer than 1/32 in (0,8 mm) or easily removed (C03).<br>4- Rejected on large pieces if it is longer than 1/16 in (1,6 mm) or it is easily removed (C03).",
+                    "label": "Injection point ",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "wrong_quantity",
+                    "criteria": "Rejected if found extra pieces comparing with BOM and playbook. ",
+                    "label": "Wrong Quantity",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "electronic_problem",
+                    "criteria": "1- Rejected if any parts / toy with battery has no sound / no light or malfunction in product design.",
+                    "label": "Electronic Problem",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "strappex_functionality",
+                    "criteria": "1- Rejected if it can be removed easily from its location<br>3- Rejected if it deforms the toy (see A02)<br>4- Rejected if it causes stress marks on the toy (see B09)<br>5- Rejected if it creates small parts (see C03)",
+                    "label": "Strappex Functionality",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "flash",
+                    "criteria": "1- Rejected if it has an impact on the functionality or the assembly (interference). <br>IF NOT:<br>2- On Micro, rejected if more than 1/64 in or 0.4 mm <br>3- On Maxi-Mini, rejected if visible and more than 1/64 in or 0.4 mm, not visible and accessible more than 1/32 in (0.8 mm) or not visible and not accessible more than 1/16 in or (1.6mm).",
+                    "label": "Flash ",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "external_dirt",
+                    "criteria": "1- Rejected if we are able to clean the dirt.<br>2- Grease or oil is rejected.",
+                    "label": "External Dirt",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "sink_mark",
+                    "criteria": "1- Rejected if a void on the part is present under a ruler.",
+                    "label": "Sink mark",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "burn_mark",
+                    "criteria": "1- Rejected on all blocks: maxi, mini and micro<br>2- Dark burn marks are rejected<br>3- White burn marks are rejected if it is more the 1/16 in (1.6 mm) or it makes a hole or it weakens the piece.",
+                    "label": "Burn Mark",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "water_mark",
+                    "criteria": "1- Rejected for small parts and blocks if more than 3 droplets of maximum 1/32 in (0.8 mm).<br>2- Rejected for large transparent pieces.<br>3- Rejected on large pieces, if it is on a visible face, it weakens the piece or it is larger than 1/2 in (12.7 mm).",
+                    "label": "Water mark",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "welding_line",
+                    "criteria": "1- Rejected if it is sensitive to the touch, white color or easily breakable.",
+                    "label": "Welding line",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "color",
+                    "criteria": "1- Rejected if it does not match the approved color chip.<br>2- Rejected if 2 pieces side by side are different.<br>3- Rejected if another color is present (contamination)<br>4- Rejected if Color dispersion is greater than 1/8 in (3.2 mm) when held to the light or 1/16 in (1.6 mm) normal lighting (same for flow marks).<br>5- Flow lines on transparent or metallic colors matching approved reference samples are acceptable. ",
+                    "label": "Color",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "flatness",
+                    "criteria": "1- Only for micro Blocks 1/2, 1/3, 2/3.<br>2- Micro 2-3-4-5-6 posts, no deformation allowed.<br>3- Micro 8-12-16-24 posts, rejected if more than 1/16 in (1.6 mm).",
+                    "label": "Flatness",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "stress_mark",
+                    "criteria": "1- Rejected on all blocks (micro, mini and maxi).<br>2- Rejected on large pieces if the deformation is sensitive to the touch.<br>3- Rejected if more than 2 visible marks or mark is longer than 3/16 in (4.7 mm).",
+                    "label": "Stress mark",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "peeling_label",
+                    "criteria": "1- Rejected if peeling is more than 1/8 in (3.2 mm).",
+                    "label": "Peeling label",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "badly_crooked_label",
+                    "criteria": "1- Rejected on labels outside frame.<br>2- Rejected on labels 3 in and smaller if crooked by more than 1/16 in (1.6 mm).<br>3- Rejected on labels more than 3 in if crooked by more than 1/8 in (3.2 mm).",
+                    "label": "Badly crooked label",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "orange_peel",
+                    "criteria": "1- Rejected if sensitive to the touch.<br>2- Rejected if surface is greater than ½ in (12.7 mm) x ½ in (12.7 mm).",
+                    "label": "Orange peel",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "bubble",
+                    "criteria": "1- Rejected on maxi block, if surface is deformed or if it is visible on the front.",
+                    "label": "Bubble",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "black_spot",
+                    "criteria": "1- Rejected on all micro blocks<br>2- Rejected on all other parts if 1 point more than 1/32 in (0.8 mm) or more than 3 points of 1/64 in (0.4 mm).",
+                    "label": "Black spot",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "little_scratch_mark",
+                    "criteria": "1- Rejected if sensitive to fingernail or longer than 1/4 of the shortest side (see A03).",
+                    "label": "Little scratch mark",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "stain_mark",
+                    "criteria": "1- Rejected if it covers more than 25 % of a visible surface.",
+                    "label": "Stain mark",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "unmelted_plastic",
+                    "criteria": "1- Rejected if visible in normal lighting.",
+                    "label": "Unmelted plastic",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "air_bubble_under_label",
+                    "criteria": "1- Front label: for labels equal or smaller than 3 in (76.2 mm) x 6 in (152.4 mm), no bubbles allowed. On larger labels, rejected if 1 bubble is greater than 1/4 in (6.4 mm) or more than 3 bubbles of 1/8 in (3.2 mm).<br>2- Secondary labels (back, bottom, etc) : rejected if 1 bubble is greater than 1/2 in (12.7 mm) or more than 3 bubbles of 1/8 in (3.2 mm).",
+                    "label": "Air bubble under label",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "angel_hair",
+                    "criteria": "1- Rejected if longer than the radius of the post.",
+                    "label": "Angel hair",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "logo_readability",
+                    "criteria": "1- Rejected if logo is deformed or incomplete.",
+                    "label": "Logo readability",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "others",
+                    "criteria": "Other problem not listed",
+                    "label": "Others",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                }
+            ],
+            "unstructuredCheckpoints": {},
+            "procedure": [
+                {
+                    "label": "",
+                    "description": "",
+                    "associatedCheckpoints": []
+                }
+            ],
+            "defectCountMatrix": {}
+        },
+        {
+            "label": "assembly___testing",
+            "title": "ASSEMBLY / TESTING",
+            "checkpoints": [
+                {
+                    "id": "fit_problem",
+                    "criteria": "1- Rejected if the assembly in a column (5 to 10 pieces) is not straight.<br>2- Rejected if the parallel assembly on a B/O plate (plate type piece) is difficult.<br>3- Rejected if the assembly with special blocks is difficult, functionality test.<br>4- Validate fit with physical trials. Jig go no go",
+                    "label": "Fit Problem",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "injection_point",
+                    "criteria": "1- Rejected if it creates interference when assembled.<br>2- Rejected on micro if it is longer than 1/32 in (0,8 mm).<br>3- Rejected on mini and maxi bloks if it is longer than 1/32 in (0,8 mm) or easily removed (C03).<br>4- Rejected on large pieces if it is longer than 1/16 in (1,6 mm) or it is easily removed (C03).",
+                    "label": "Injection point ",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "electronic_problem",
+                    "criteria": "1- Rejected if any parts / toy with battery has no sound / no light or malfunction in product design.",
+                    "label": "Electronic Problem",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major A",
+                        "defectType": "major_a",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "flash",
+                    "criteria": "1- Rejected if it has an impact on the functionality or the assembly (interference). <br>IF NOT:<br>2- On Micro, rejected if more than 1/64 in or 0.4 mm <br>3- On Maxi-Mini, rejected if visible and more than 1/64 in or 0.4 mm, not visible and accessible more than 1/32 in (0.8 mm) or not visible and not accessible more than 1/16 in or (1.6mm).",
+                    "label": "Flash ",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "color",
+                    "criteria": "1- Rejected if it does not match the approved color chip.<br>2- Rejected if 2 pieces side by side are different.<br>3- Rejected if another color is present (contamination)<br>4- Rejected if Color dispersion is greater than 1/8 in (3.2 mm) when held to the light or 1/16 in (1.6 mm) normal lighting (same for flow marks).<br>5- Flow lines on transparent or metallic colors matching approved reference samples are acceptable. ",
+                    "label": "Color",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Major B",
+                        "defectType": "major_b",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                },
+                {
+                    "id": "others",
+                    "criteria": "Other problem not listed",
+                    "label": "Others",
+                    "androidActions": [],
+                    "dataCell": {
+                        "label": "Minor",
+                        "defectType": "minor",
+                        "value": 0,
+                        "comments": "",
+                        "images": [],
+                        "history": []
+                    }
+                }
+            ],
+            "unstructuredCheckpoints": {},
+            "procedure": [
+                {
+                    "label": "",
+                    "description": "",
+                    "associatedCheckpoints": []
+                }
+            ],
+            "defectCountMatrix": {}
+        }],
+    "flagged": "1",
+    "urgent": "0",
+    "conclusion": {
+        "result": "",
+        "remarks": ""
+    },
+    "metadata": {
+        "_version": "0.2",
+        "_generated_on": "2012-12-04T22:21:41.859Z",
+        "_modified_by_a_human_on": ""
+    }
+}
