@@ -1,6 +1,6 @@
 {
     "header": {
-        "productionStage": "IPC",
+        "inspectionStage": "",
         "location": "",
         "sku": {
             "_id": "",
@@ -60,7 +60,7 @@
                         "defectType": "critical",
                         "value": 0,
                         "comments": "",
-                        "images": [{"src": "happyface.png"},{"src": "happyface.png"}],
+                        "images": [],
                         "history": []
                     }
                 },
@@ -1087,10 +1087,13 @@
             ],
             "defectCountMatrix": {}
         }],
+    "quantity": "",
     "flagged": "1",
     "urgent": "0",
+    "status": "",
     "conclusion": {
         "result": "",
+        "date": "",
         "remarks": ""
     },
     "metadata": {

@@ -1,6 +1,54 @@
 'use strict';
 // NOTE: Make sure that temp.json is in the /data directory before running!
 function PushFakeDataController($scope, $resource, LocalFakeData, CouchFakeData) {
+    if (localStorage.getItem('Pivot88Preferences') == undefined) {
+        window.alert("Pivot88Preferences are not defined. Setting defaults.");
+        var Pivot88Preferences = {
+          "stages" : [ {
+            "_id" : "3d84f25a-54ed-4e34-96fb-5e086af74ba6",
+            "label" : "Pre-production",
+            "image_src" : "planning.jpg"
+          }, {
+            "_id" : "82da86d5-fca3-4fbc-b4d4-371f17b778a2",
+            "label" : "During Production",
+            "image_src" : "production.jpg"
+          }, {
+            "_id" : "b906b468-c9cb-4836-9a8e-6e0dc6969c9f",
+            "label" : "Pre-Shipment",
+            "image_src" : "shipping.jpg"
+          }, {
+            "_id" : "94bcad11-44e3-49e0-9a78-03b25fc0cee8",
+            "label" : "Factory Audit",
+            "image_src" : "shipped.jpg"
+          }, {
+            "_id" : "a6bbb2fc-a969-4372-93a3-199704bba73f",
+            "label" : "",
+            "image_src" : ""
+          }, {
+            "_id" : "ca077180-e398-4d29-866e-22e88648354d",
+            "label" : "",
+            "image_src" : ""
+          }, {
+            "_id" : "d40c5c17-f642-43f5-8f6a-47fce5329fc7",
+            "label" : "",
+            "image_src" : ""
+          } ]
+        };
+        localStorage.setItem('Pivot88Preferences', JSON.stringify(Pivot88Preferences));
+      } else {
+        var Pivot88Preferences = jQuery.parseJSON(localStorage.getItem('Pivot88Preferences'));
+        console.log("Pivot88Preferences: " + JSON.stringify(Pivot88Preferences));
+      }
+
+      var scopeStages = new Array;
+      for (var i in Pivot88Preferences.stages) {
+        if (Pivot88Preferences.stages[i].label != "") {
+          scopeStages.push(Pivot88Preferences.stages[i]);
+        }
+      }
+      $scope.stages = scopeStages;
+	
+	
 	$scope.saveFakeData = function(fake) {
 		// Change status to 'enabled' to enable this function, 'disabled' to
 		// disable it
@@ -29,7 +77,7 @@ function PushFakeDataController($scope, $resource, LocalFakeData, CouchFakeData)
 
 						newRecord.header.date = fake.date;
 						newRecord.header.forecasted_inspection_date = fake.forecasted_inspection_date;
-						newRecord.header.productionStage = fake.inspection_stage;
+						newRecord.header.inspectionStage = fake.inspectionStage;
 						newRecord.header.location = fake.location;
 						newRecord.header.sku._id = fake.sku.number;
 						
@@ -54,23 +102,13 @@ function PushFakeDataController($scope, $resource, LocalFakeData, CouchFakeData)
 						
 						newRecord.header.purchaseOrder._id = fake.purchaseOrder.number;
 						
+						newRecord.quantity = fake.quantity;
+						
 						// Generate Work Order id
-						var workOrderDate = new Date(fake.date);
-						var workOrderDay = workOrderDate.getDate() + 1;
-						var workOrderMonth = workOrderDate.getMonth() + 1;
-						var workOrderNumber;
-						if (fake.inspection_stage == "IPC"
-								|| fake.inspection_stage == "DPI") {
-							workOrderNumber = fake.inspection_stage + "-"
-									+ JSON.stringify(workOrderMonth)
-									+ JSON.stringify(workOrderDay) + "-"
-									+ fake.sku.number;
-						} else {
-							workOrderNumber = fake.inspection_stage + "-"
-									+ JSON.stringify(workOrderMonth)
-									+ JSON.stringify(workOrderDay) + "-"
-									+ fake.purchaseOrder.number;
-						}
+//						var workOrderDate = new Date(fake.date);
+//						var workOrderDay = workOrderDate.getDate() + 1;
+//						var workOrderMonth = workOrderDate.getMonth() + 1;
+						var workOrderNumber = fake.sku.number + "-" + fake.purchaseOrder.number;
 						$scope.fakeWordOrderNumber = workOrderNumber;
 						newRecord.header.workOrder._id = workOrderNumber;
 						
@@ -78,7 +116,9 @@ function PushFakeDataController($scope, $resource, LocalFakeData, CouchFakeData)
 						newRecord.header.assignment.date_created = fake.assignment.date;
 						newRecord.flagged = fake.flagged;
 						newRecord.urgent = fake.urgent;
+						newRecord.status = fake.status;
 						newRecord.conclusion.result = fake.conclusion.result;
+						newRecord.conclusion.date = fake.conclusion.date;
 						
 						console.log("Attempting to create new records.");
 
