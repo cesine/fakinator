@@ -114,8 +114,8 @@ function PushFakeDataController($scope, $resource, LocalFakeData, CouchFakeData)
 						
 						newRecord.header.assignment._id = fake.assignment.number;
 						newRecord.header.assignment.date_created = fake.assignment.date;
-						newRecord.flagged = fake.flagged;
-						newRecord.urgent = fake.urgent;
+						newRecord.starred = fake.starred;
+						newRecord.actionRequired = fake.actionRequired;
 						newRecord.status = fake.status;
 						newRecord.conclusion.result = fake.conclusion.result;
 						newRecord.conclusion.date = fake.conclusion.date;

@@ -1088,8 +1088,8 @@
             "defectCountMatrix": {}
         }],
     "quantity": "",
-    "flagged": "1",
-    "urgent": "0",
+    "starred": "1",
+    "actionRequired": "0",
     "status": "",
     "conclusion": {
         "result": "",
